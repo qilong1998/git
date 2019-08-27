@@ -1,0 +1,28 @@
+git config -l	查看配置信息
+git config --global -l	查看全局配置信息
+git config --global user.name 'xxx'	配置用户名
+git config --global user.email 'xxx' 	配置邮箱
+
+clear	清屏
+git status		查看当前状态    红色代表在工作区  绿色代表在暂存区  看不见在历史区
+
+git init 	创建本地git仓库 	 =>会生成一个隐藏文件夹“.git”
+			(暂存区和历史区还有一些其他的信息都在这里)
+
+git add xxx 	把某一个问价或者文件夹提交到暂存区
+git add . 或 -A	把所有最新修改的文件都提交到暂存区
+
+git commit -m'描述信息'	把暂存区的内容提交到历史区
+
+git log 		查看历史版本信息
+git reflog		查看历史版本信息（包含回滚的信息）
+
+git reset --hard 版本号 	回滚历史版本
+git reflog 查看回滚之前的版本 之后 git reset --herd 查看到的版本号	恢复到回滚之前的版本
+
+git remote -v 	查看本地仓库和哪些远程仓库连接
+git remote add origin git地址		让本地仓库和远程仓库新建一个连接 origin是随便起的一个连接名
+git remote rm origin	删除关联信息
+
+git clone git地址		克隆远程仓库文件
+
