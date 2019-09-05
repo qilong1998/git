@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./stu.css">
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>学生档案</legend>
+            <label for="userName">姓名：</label>
+            <input type="text" name="userName" id="userName" placeholder="请输入用户名">
+            <label for="userPhon">手机号：</label>
+            <input type="tel" name="userPhon" id="userPhon" pattern="^1\d{10}$" required>
+            <label for="email">邮箱：</label>
+            <input type="email" name="email" id="email" required>
+            <label for="collage">所属学院：</label>
+            <input type="text" name="collage" id="collage" list="cList" placeholder="请选择">
+            <datalist id="cList">
+                <option value="前端与移动端"></option>
+                <option value="JavaScript"></option>
+                <option value="PHP"></option>
+                <option value="C++"></option>
+            </datalist>
+            <label for="num">入学成绩：</label>
+            <input type="number" name="num" id="num" max="100" min="0">
+            <label for="">基础水平：</label>
+            <meter id="level" value="" max="100" min="0" low="59" high="90"></meter>
+            <label for="inTime">入学日期：</label>
+            <input type="date" name="inTime" id="inTime">
+            <label for="offTime">毕业日期：</label>
+            <input type="date" name="offTime" id="offTime">
+            <input type="submit">
+        </fieldset>
+    </form>
+    <script>
+        document.getElementById("num").oninput = function() {
+            document.getElementById("level").value = this.value;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    width: 600px;
+    margin: 20px auto;
+}
+
+form>fieldset {
+    padding: 10px;
+}
+
+form>fieldset>meter,
+form>fieldset>input {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    margin: 10px 0;
+    font-size: 16px;
+    padding-left: 10px;
+    border: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* width=内容++padding+border */
+    box-sizing: border-box;
+}
+
+form>fieldset>meter {
+    padding: 0
+}

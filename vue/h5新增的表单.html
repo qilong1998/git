@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="color" name="" id="inp" onchange="on()">
+        <input type="range" onchange="add()" id="inp2" min="-50" max="50">
+    </form>
+    <script>
+        var inp = document.getElementById("inp");
+
+        function on() {
+            console.log(inp.value);
+        }
+
+        function add() {
+            console.log(document.getElementById("inp2").value);
+        }
+    </script>
+</body>
+
+</html>

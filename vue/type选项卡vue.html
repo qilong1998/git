@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-clock] {
+            display: none;
+        }
+        
+        * {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            width: 300px;
+            height: 400px;
+            border: 1px solid red;
+            word-break: break-all;
+            margin: 0 auto;
+        }
+        
+        .title {
+            display: flex;
+        }
+        
+        .title li {
+            flex: 1;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .content li {
+            height: 200px;
+        }
+        
+        .title li.active {
+            background: orange;
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" v-clock>
+        <div class="container">
+            <ul class="title">
+                <li @mouseover="activeIndex = 0" :class="{active:activeIndex === 0}">飞机票</li>
+                <li @mouseover="activeIndex = 1" :class="{active:activeIndex === 1}">火车票</li>
+                <li @mouseover="activeIndex = 2" :class="{active:activeIndex === 2}">高铁票</li>
+            </ul>
+            <ul class="content">
+                <li v-show="activeIndex === 0">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</li>
+                <li v-show="activeIndex === 1">BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB</li>
+                <li v-show="activeIndex === 2">CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data() {
+                return {
+                    activeIndex: 0
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

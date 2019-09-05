@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <input type="checkbox" @change="selectAll" v-model="isAllCheck"> 全选
+        <ul>
+            <li v-for="(data, index) in datalist" :key="datalist.id">
+                <input type="checkbox" v-model="checkgroup" :value="data" @change="selectItem" /> {{data}}
+                <button @click="del(data)">del</button>
+                <span>
+                <input type="number" v-model="data.num" @change="num(data)">
+                </span>
+                <button @click="data.num++">add</button>
+            </li>
+        </ul>
+        {{checkgroup}}
+        <p>总价为{{getSum()}}</p>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        new Vue({
+            el: '#box',
+            data:{
+                checkgroup:[],
+                isAllCheck: false,
+                datalist: [
+                    {
+                        id:1,
+                        name:"商品1",
+                        price: 10,
+                        num: 1
+                    },
+                    {
+                        id:2,
+                        name:"商品2",
+                        price: 20,
+                        num: 2
+                    },
+                    {
+                        id:3,
+                        name:"商品3",
+                        price: 30,
+                        num: 3
+                    }
+                ]
+            },
+            methods: {
+                getSum(){
+                    var sum = 0;
+                    for (const i in this.checkgroup) {
+                        sum += this.checkgroup[i].num * this.checkgroup[i].price
+                    }
+                    return sum;
+                },
+                del(data){
+                    data.num--;
+                    if(data.num < 1){
+                        data.num = 1;
+                    }
+                },
+                num(data){
+                    if(data.num < 1){
+                        data.num = 1;
+                    }
+                },
+                selectAll(){
+                    console.log(this.isAllCheck)
+                    if(this.isAllCheck){
+                        this.checkgroup = this.datalist;
+                    }else{
+                        this.checkgroup = [];
+                    }
+                },
+                selectItem(){
+                    if(this.checkgroup.length === this.datalist.length){
+                        this.isAllCheck = true;
+                    }else{
+                        this.isAllCheck = false;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
