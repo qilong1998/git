@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则</title>
+</head>
+
+<body>
+
+    <script>
+        var re01 = /a/;
+        var re02 = /\d/; //匹配单个数字
+        var re03 = /^\d+$/; //匹配多个数字
+        var re04 = /^ab$/i; //匹配不区分大小写
+
+        var str1 = "abcdefg";
+        var str2 = "bcdefg";
+        var str3 = 222;
+        var str4 = "2314123ghg";
+        var str5 = "Ab";
+        console.log(re01.test(str1));
+        console.log(re01.test(str2));
+        console.log(re02.test(str3));
+        console.log(re03.test(str4));
+        console.log(re04.test(str5));
+    </script>
+</body>
+
+</html>
