@@ -1,0 +1,13 @@
+cat 		查看命令 eg：cat /etc/redhat-release
+uname -r		查看内核版本
+lsb_release -a	查看操作系统版本
+free -h		查看内存大小
+who -r 或者 whoami		查看当前用户
+init 3		切换到命令行界面
+init 5		切换到图形化界面
+init 0		切换到关机
+init 6		切换到重启
+runlevel		查看当前运行状态或模式
+
+ifconfig		查看当前的ip地址
+tty		查看当前在哪个终端
