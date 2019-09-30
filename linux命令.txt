@@ -18,6 +18,7 @@ hostname		查看完整的主机名
 
 type 命令单词	查看命令路径  eg: type hostname
 
+gedit /etc/profile.d/env.sh			保存住提示符格式
 PS1="\[\e[1;33m\][\u@\h \W]\\$\[\e[0m\]"	修改提示符格式
 
 nano /etc/profile.d/env.sh			命令行设置并保存住提示符格式
@@ -36,7 +37,7 @@ whereis cat		查看外部命令和文档路径
 
 mv /usr/bin/hostname(要移动路径的文件) /usr/local/bin/(要移动的位置上)	移动文件
 
-echo $PATH		查看搜索路径
+echo $PATH		查看外部命令搜索路径
 
 hash			列出所有曾经敲外部命令路径
 hash -d name		删除缓存中的name缓存
@@ -44,3 +45,26 @@ hash -l			显示hash缓存，可作为输入使用
 hash -p path name		将命令全路劲path起别名为name
 hash -t name		打印缓存中name的路径
 hash -r 			清除缓存
+
+alias name=‘cd /etc/sysconfig/network-scripts’		给后面的命令起一个叫做name的命令
+alias			列出所有别名
+unalias name		删除指定为name的别名
+unalias -a			删除所有别名
+
+source 修改过的文件		可以不用重启立即生效别名
+. 修改过的文件		同上
+
+date			显示系统时间
+date 月日时分年秒		设置系统时间
+
+clock			显示硬件时间
+clock -s			以硬件时钟为准，校准系统时间
+clock -w			以系统时间为准，校准硬件时间
+/etc/localtime		时区
+cal -y			显示日历
+
+whatis name		查看name命令是什么意思
+mandb			生成whatis的数据库
+
+sz 文件路径		把linux的文件传到windows中
+rz 文件路径		把windows上的文件传到linux中
