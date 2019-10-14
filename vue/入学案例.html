@@ -38,10 +38,15 @@
             <input type="submit">
         </fieldset>
     </form>
+    <script src="./jquery-3.4.1.min.js"></script>
     <script>
         document.getElementById("num").oninput = function() {
             document.getElementById("level").value = this.value;
         }
+        $("form").on("submit", function(event) {
+            event.preventDefault();
+            console.log($(this).serialize());
+        });
     </script>
 </body>
 

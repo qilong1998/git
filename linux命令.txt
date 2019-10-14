@@ -68,3 +68,29 @@ mandb			生成whatis的数据库
 
 sz 文件路径		把linux的文件传到windows中
 rz 文件路径		把windows上的文件传到linux中
+
+halt, poweroff		关机
+reboot			重启 -f(强制,不调用shutdown) -p(切断电源)
+
+pwd			查看所在位置
+ls 			查看目录中的文件 
+ls -F 			查看目录中的文件 
+ls -l 			显示文件和目录的详细资料 
+ls -a 			显示隐藏文件 
+ls *[0-9]* 			显示包含数字的文件名和目录名 
+tree 			显示文件和目录由根目录开始的树形结构 yum -y install tree 需要安装
+lstree 			显示文件和目录由根目录开始的树形结构
+mkdir dir1 		创建一个叫做 'dir1' 的目录' 
+mkdir dir1 dir2		同时创建两个目录 
+mkdir -p /tmp/dir1/dir2 	创建一个目录树 
+rm -f file1 		删除一个叫做 'file1' 的文件' 
+rmdir dir1 		删除一个叫做 'dir1' 的目录' 
+rm -rf dir1 		删除一个叫做 'dir1' 的目录并同时删除其内容 
+rm -rf dir1 dir2 		同时删除两个目录及它们的内容 
+mv dir1 new_dir 		重命名/移动 一个目录 例:mv -i 456.txt 			/home/hk/cpdir/copy/abc    将  456.txt 移动到 			/home/hk/cpdir/copy/ 并取名为 abc 若已存在文件 abc则会询问			是否覆盖。
+cp file1 file2 		复制一个文件 
+cp dir/* . 			复制一个目录下的所有文件到当前工作目录 
+cp -a /tmp/dir1 . 		复制一个目录到当前工作目录 
+cp -a dir1 dir2 		复制一个目录 
+ln -s file1 lnk1 		创建一个指向文件或目录的软链接 
+ln file1 lnk1 		创建一个指向文件或目录的物理链接 
