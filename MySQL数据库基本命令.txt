@@ -1,0 +1,56 @@
+mysql -u root -p				连接数据库
+
+show databases;				查看数据库
+show create database 数据库名;		查看建库语句
+create database 数据库名			创建数据库
+drop database 数据库名			删除数据库
+
+use 数据库名				进入数据库
+show tables;				查看数据表
+show create table 数据表名;			查看建表语句
+create table 数据表名(id int, username varchar(40), password varchar(32));	创建数据表
+drop table 数据表名				删除数据表
+
+desc 数据表名				查看表结构
+alter table 数据表 add 字段名和类型 after(需要放在哪个后面) 表中的字段名		添加字段名
+alter table 数据表 change 之前的字段 之后的字段 varchar(45);	修改表字段名
+alter table 数据表 drop 字段名			删除表字段
+alter table 数据表 modify 表中的字段 要修改的类型;	修改表类型
+
+alter table 表名字 rename 新名字		修改表名字
+
+select database();				查看当前在哪个数据库中
+
+数据库的增删改查	***
+insert into 数据表名 values(对应的字段);				插入数据
+insert into bbs_user(字段) values(对应前面的字段);			插入数据可用于主键自增
+insert into bbs_user(字段) values(对应前面的字段), (对应前面的字段);	插入多条数据
+
+delete from 数据表名 where 字段 = 对应的数据;			删除指定数据
+
+update 数据表名 set 修改的字段=修改的内容 where id=修改的id;	修改指定字段数据
+update 数据表名 set 修改的字段=修改的内容,修改的字段=修改的内容 where id=修改的id;	修改多个字段数据
+
+select * from 数据表名;					查询数据
+select 字段名 from 数据表名;					查询指定字段数据
+select 字段名,字段名 from 数据表名;				查询多个指定字段数据
+select distinct 字段名 from 数据表名;				查询指定字段去除重复值的数据
+select * from 数据表名 where 字段名=指定内容;			查询指定内容的数据
+select * from 数据表名 where 字段名 between 数值一 and 数值二;	查询数值一和数值二之间的数据
+select * from 数据表名 where age=23 or age=15;			查询年龄等于23或者年龄等于15的数据
+select * from 数据表名 where age!=23;				查询所有年龄不等于23的数据
+select * from 数据表名 where age in(15,22);			查询所有年龄是15和22的数据
+select * from 数据表名 where 字段 like "%内容%";			模糊查询 查询数据中包含“内容”的全部数据
+select * from 数据表名 order by 字段 asc(默认);			升序排序查询
+select * from 数据表名 order by 字段 desc;			降序排序查询
+select * from 数据表名 limit 3;					查询前3条数据
+select * from 数据表名 limit 3，3;				查询从第三条开始的三条数据
+select * from 数据表名 group by 字段;				分组查询 只保留一个
+select count(*) from 数据表名;					查询数据个数
+select 字段名 as 新名字 from 数据表名;				起别名查询
+
+select 两个表中的字段 from 第一张表 inner join 第二张表 on 第一张表.关联字段 = 第二张表.关联字段;	内联查询
+select 第一张表.username from 第一张表 left join 第二张表 on 第一张表.gid = 第二张表.gid;      		左联查询,以第一张表为基准
+select 第一张表.username from 第一张表 right join 第二张表 on 第一张表.gid = 第二张表.gid;   		右联查询,,以第二张表为基准
+
+

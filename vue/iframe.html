@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="gb2312" />
+        <title></title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <a href="javascript:;" target="test" onclick="menuClick('http://www.taobao.com')">百度</a>
+        <a href="javascript:;" target="test" onclick="menuClick('http://www.qq.com')">qq</a>
+        <iframe src="" name="test" id="iframe-page-content"></iframe>
+
+        <script type="text/javascript">
+        var height=document.documentElement.clientHeight;
+        var iframe=document.getElementById("iframe-page-content")
+        document.getElementById('iframe-page-content').style.height=height+'px';
+        document.getElementById('iframe-page-content').style.width='90%';
+        function menuClick(menuUrl) {
+            iframe.setAttribute('src',menuUrl);
+        };
+        </script>
+    </body>
+</html>
