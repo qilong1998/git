@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>webSocket基本使用</title>
+    <style>
+        div{
+            width: 300px;
+            height: 100px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="输入你的内容">
+
+    <button>发送</button>
+    <!-- 显示结果 -->
+    <div></div>
+    <script>
+        let inp = document.querySelector('input');
+        let btn = document.querySelector('button')
+        let div = document.querySelector('div');
+        // 1. 创建webSocket服务
+        let socket = new WebSocket('ws://localhost:3000')
+
+        // 2. 当webSocket服务连接成功时触发
+        socket.addEventListener('open', function () {
+            div.innerHTML = '连接服务成功了...'
+        })
+
+        // 3. 主动给webSocket服务发送消息
+        btn.addEventListener('click', function(){
+            let val = inp.value
+            socket.send(val)
+        })
+
+        // 4. 接收webSocket服务的数据
+        socket.addEventListener('message', function(e){
+            let html = div.innerHTML
+            html += '</br>' + e.data
+            console.log(html)
+            div.innerHTML = html
+            inp.value = ''
+        })
+
+        // 5. 断开webSocket连接
+        socket.addEventListener('close', function(){
+            div.innerHTML = '服务器断开连接...'
+        })
+    </script>
+</body>
+</html>
